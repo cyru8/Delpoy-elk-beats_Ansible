@@ -1,0 +1,40 @@
+# line 15: set items to collect data
+- module: system
+  # Syslog
+  syslog:
+    enabled: true
+
+.....
+.....
+
+  # Authorization logs
+  auth:
+    enabled: true
+
+# line 1236: if use Kibana, uncomment and specify output host
+# if SSL is enabled on Kibana, uncomment ssl related lines
+# if your certs is self-siged one, ssl.verification_mode should be "none"
+setup.kibana:
+
+  # Kibana Host
+  # Scheme and port can be left out and will be set to the default (http and 5601)
+  # In case you specify and additional path, the scheme is required: http://localhost:5601/path
+  # IPv6 addresses should always be defined as: https://[2001:db8::1]:5601
+  host: "192.168.2.145:5601"
+
+  # Optional protocol and basic auth credentials.
+  protocol: "https"
+  #username: "elastic"
+  #password: "changeme"
+
+  # Optional HTTP Path
+  #path: ""
+
+  # Use SSL settings for HTTPS. Default is true.
+  ssl.enabled: true
+
+  # Configure SSL verification mode. If `none` is configured, all server hosts
+  # and certificates will be accepted. In this mode, SSL based connections are
+  # susceptible to man-in-the-middle attacks. Use only for testing. Default is
+  # `full`.
+  ssl.verification_mode: none

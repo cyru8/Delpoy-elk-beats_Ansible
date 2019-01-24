@@ -1,0 +1,34 @@
+---
+# tasks file for filebeat
+- name: install the Filebeat Version 6.5.2 rpm
+  yum:
+    name: https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.5.2-x86_64.rpm
+    state: present
+
+- name: Copy filebeat.yml to /etc/filebeat/
+  copy:
+    src: filebeat.yml
+    dest: /etc/filebeat/
+    mode: 0644
+
+#- name: Copy filebeat.reference.yml ,to /etc/filebeat
+#  copy:
+#    src: filebeat.reference.yml
+#    dest: /etc/filebeat/
+#    mode: 0644
+
+- name: Copy filebeat.template.json to /etc/filebeat
+  copy:
+    src: filebeat.template.json
+    dest: /etc/filebeat/
+    mode: 0644
+
+- name: start filebeat
+  service:
+    name: filebeat
+    state: started
+    enabled: yes
+  become: true
+
+#force all handlers to run - so all db updates will take effect  
+- meta: flush_handlers

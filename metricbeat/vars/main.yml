@@ -1,0 +1,4 @@
+---
+# vars file for metricbeat
+elk_server: elk-ansible    
+logstash_port: 5044

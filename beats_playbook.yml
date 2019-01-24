@@ -1,0 +1,8 @@
+---
+#@See https://dotlayer.com/how-to-use-an-ansible-playbook-to-install-wordpress/     #### FULL GUIDE FOR LAMP
+- hosts: linux-servers
+  become: yes
+  roles:
+     #- filebeat
+     - metricbeat
+...

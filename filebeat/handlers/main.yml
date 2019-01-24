@@ -1,0 +1,9 @@
+---
+# handlers file for filebeat
+- name: start filebeat
+  service:
+    name: filebeat
+    state: started
+    enabled: yes
+  become: true
+

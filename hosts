@@ -1,0 +1,7 @@
+[linux-servers]
+logsrv
+srv-pxe
+labtest2
+docker-host
+192.168.2.10
+192.168.2.101
